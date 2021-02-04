@@ -27,11 +27,18 @@ void power(ll f[2][2],ll n)
 }
 void solve()
 {   
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
     ll f[2][2]={{1,1},{1,0}};
-    power(f,n-1);
-    cout<<f[0][0]<<"\n";
+    ll a[2][2]={{1,1},{1,0}};
+    power(f,n);
+    power(a,m+1);
+    if(n==0 || n==1)
+    {
+        cout<<(a[0][0]-1)%mod<<"\n";
+        return;
+    }
+    cout<<(a[0][0]%mod-f[0][0]%mod+mod)%mod<<"\n";
 }
 int main()
 {
